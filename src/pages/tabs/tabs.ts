@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { ModalController, NavController } from 'ionic-angular';
 
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
+
 import { HomePage } from '../home/home';
+import { AddStuffPage } from '../add-stuff/add-stuff';
+import { ListStuffPage } from '../list-stuff/list-stuff';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -10,10 +12,15 @@ import { HomePage } from '../home/home';
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
+  tab2Root = ListStuffPage;
 
-  constructor() {
+  constructor(
+    private modalCtrl: ModalController,
+    private navCtrl: NavController
+  ) {}
 
+  openCamera() {
+    const modal = this.modalCtrl.create(AddStuffPage);
+    modal.present();
   }
 }

@@ -1,5 +1,6 @@
 {
   "name": "change-active-tab",
   "app_id": "",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {}
 }
