@@ -25,6 +25,19 @@ export class ListStuffPage {
   }
 
   ionViewDidEnter() {
+
+    /**
+     * INFO
+     * You may want to use something to manage the state of your app.
+     * I personally prefer redux or ngrx/store.
+     * 
+     * But that would be too much for this little demo app.
+     * 
+     * You can also play around with Ionic's Events Api to subscribe 
+     * and publish state changes. 
+     * 
+     */
+
     try {
       this.stuff = JSON.parse(sessionStorage.getItem('stuff'));
     } catch(err) {
