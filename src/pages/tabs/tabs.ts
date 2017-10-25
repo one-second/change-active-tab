@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController } from 'ionic-angular';
+import { ModalController, NavController, Events, App, Tabs } from 'ionic-angular';
 
 
 import { HomePage } from '../home/home';
@@ -16,8 +16,18 @@ export class TabsPage {
 
   constructor(
     private modalCtrl: ModalController,
-    private navCtrl: NavController
-  ) {}
+    private navCtrl: NavController,
+    private events: Events,
+    private app: App
+  ) {
+    this.events.subscribe('Kumar', () => {
+      setTimeout(() => {
+        const tabsNav = this.app.getNavByIdOrName('myTabsNav') as Tabs;
+        tabsNav.getActiveChildNavs()[0].pop()
+        tabsNav.select(1);
+      }, 500)
+    })
+  }
 
   openCamera() {
     const modal = this.modalCtrl.create(AddStuffPage);
